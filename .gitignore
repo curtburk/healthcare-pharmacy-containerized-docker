@@ -1,0 +1,20 @@
+# Models (too large for git, downloaded separately)
+models/*.gguf
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Virtual envs
+medical-env/
+.venv/
+venv/
+
+# IDE
+.vscode/
+.idea/
+
+# Data (generated, not tracked)
+medical_data/
+logs/
