@@ -41,10 +41,8 @@ cd healthcare-pharmacy-containerized-docker
 ./download_models.sh
 
 # 3. Build & run (first time)
-./start.sh --build
+./start.sh 
 
-# 4. Subsequent runs
-./start.sh
 ```
 
 The terminal will print a clickable URL with the host IP (e.g., `http://192.168.x.x:8000`). Open it from any browser on the same network.
