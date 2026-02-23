@@ -8,6 +8,11 @@ set -e
 
 # ── Pre-flight checks ───────────────────────────────────────────────────────
 
+if docker ps -a --format '{{.Names}}' | grep -q "^healthcare-drug-interaction-demo$"; then
+    echo "Removing existing container..."
+    docker rm -f healthcare-drug-interaction-demo
+fi
+
 # Check that model exists
 MODEL_FILE="./models/medical-ft-mixtral-q4"
 if [ ! -f "$MODEL_FILE" ]; then
@@ -47,7 +52,7 @@ echo "  Medical AI Drug Interaction Demo"
 echo "=============================================="
 echo "  Host IP: $HOST_IP"
 echo ""
-echo "  ➜  Demo:   http://$HOST_IP:8000"
+echo "  Click here for Demo 👉:   http://$HOST_IP:8000"
 echo "  ➜  Health:  http://$HOST_IP:8000/api/health"
 echo "=============================================="
 echo ""
