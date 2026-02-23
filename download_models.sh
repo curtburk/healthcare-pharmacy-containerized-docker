@@ -9,11 +9,15 @@ echo "================================================"
 echo ""
 echo "Medical Finetuned Mixtral Q4 (~28GB)..."
 
+cd /healthcare-pharmacy-containerized-docker/
+
+echo "creating local models folder"
+mkdir models
 
 pip install huggingface_hub
-huggingface-cli download curtburk/healthcare-polypharmacy-finetune \
-    --local-dir ./models \
-    --local-dir-use-symlinks False
+from huggingface_hub import snapshot_download
+
+snapshot_download(repo_id="curtburk/healthcare-polypharmacy-finetune", local_dir="./models")
 
 
 echo ""
